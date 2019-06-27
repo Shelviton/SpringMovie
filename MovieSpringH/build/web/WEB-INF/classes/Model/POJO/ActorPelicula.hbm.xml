@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 26/06/2019 07:32:53 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping auto-import="true">
+    <class name="Model.POJO.ActorPelicula" table="actor_pelicula" catalog="video" optimistic-lock="version">
+        <id name="aplId" type="java.lang.Integer">
+            <column name="APL_ID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="actor" class="Model.POJO.Actor" fetch="select">
+            <column name="ACT_ID">
+                <comment>Actor</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="pelicula" class="Model.POJO.Pelicula" fetch="select">
+            <column name="PEL_ID">
+                <comment>Pel&#237;cula</comment>
+            </column>
+        </many-to-one>
+        <property name="aplPapel" type="string">
+            <column name="APL_PAPEL" length="60" not-null="true">
+                <comment>Papel</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>
