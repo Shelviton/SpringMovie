@@ -58,6 +58,12 @@ public class PeliculaController {
        
         if(result.hasErrors())
         {
+            System.out.println(".............DATOS INCORRECTOS...........");
+            System.out.println(result.toString());
+            System.out.println("D: "+u.getDirector().getDirNombre());
+            System.out.println("F: "+u.getFormato().getForNombre());
+            System.out.println("G: "+u.getGenero().getGenNombre());
+            
             ModelAndView mav=new ModelAndView();
             mav.setViewName("pelicula/add");
             mav.addObject("pelicula",new Pelicula());
@@ -66,7 +72,7 @@ public class PeliculaController {
         {
             PeliculaDAO.Save(u);
             
-         return new ModelAndView("redirect:/sexo/index.htm");
+         return new ModelAndView("redirect:/pelicula/index.htm");
         }
        
         

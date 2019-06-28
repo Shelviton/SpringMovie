@@ -26,6 +26,13 @@ public class PeliculaDAO {
         String hql="from Pelicula";
         Query query =session.createQuery(hql);
         list = query.list();
+         System.out.println("********************************************");
+            for (int i = 0; i < list.size(); i++) {
+                System.out.println(" "+list.get(i).getPelNombre()+" Genero: "+list.get(i).getGenero().getGenNombre()
+                                        +" Formato: "+list.get(i).getFormato().getForNombre()+" Director "+list.get(i).getDirector().getDirNombre());
+            }
+             System.out.println("********************************************");
+        
         session.close();
         }catch(Exception E){
             E.printStackTrace();
