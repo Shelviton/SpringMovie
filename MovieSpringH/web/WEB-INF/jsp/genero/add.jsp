@@ -5,28 +5,28 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <title>Agregar Sexo</title>
+        <title>Agregar Genero</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     </head>
     <body>
         <div class="container">
             <ol class="breadcrumb">
-                <li><a href="<c:url value="/sexo/index.htm" />">Sexo</a></li>
+                <li><a href="<c:url value="/genero/index.htm" />">Genero</a></li>
                 <li class="active">Agregar</li>
             </ol>
             <div class="panel panel-primary">
                 <div class="panel-heading">Formulario</div>
                 <div class="panel-body">
                    
-                        <form:form method="post" commandName="sexo">
+                        <form:form method="post" commandName="genero">
                             <h1>Complete el formulario</h1>
                             
                             <form:errors path="*" element="div" cssClass="alert alert-danger" />
                             
 
                             <p>
-                                <form:label path="sexNombre">Nombre:</form:label>
-                                <form:input path="sexNombre" cssClass="form-control" />
+                                <form:label path="genNombre">Nombre:</form:label>
+                                <form:input path="genNombre" cssClass="form-control" />
                                 
                             </p>
                             

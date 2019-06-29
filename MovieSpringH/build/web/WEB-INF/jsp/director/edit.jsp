@@ -5,33 +5,33 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <title>Edit Sexo</title>
+        <title>Edit Director</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     </head>
     <body>
         <div class="container">
             <ol class="breadcrumb">
-                <li><a href="<c:url value="/sexo/index.htm" />">Listado de Genero-Sexo</a></li>
+                <li><a href="<c:url value="/director/index.htm" />">Listado de Directores</a></li>
                 <li class="active">Editar</li>
             </ol>
             <div class="panel panel-primary">
                 <div class="panel-heading">Editar</div>
                 <div class="panel-body">
                    
-                        <form:form method="post" commandName="sexo">
-                            <h1>Complete el formulario ${sexo.getSexId()}</h1>
+                        <form:form method="post" commandName="director">
+                            <h1>Complete el formulario ${director.getDirId()}</h1>
                             
                             <form:errors path="*" element="div" cssClass="alert alert-danger" />
                             
 
                             <p>
                                 
-                                <form:label path="sexId">ID</form:label>
+                                <form:label path="dirId">ID</form:label>
                                 
-                                <form:input path="sexId" cssClass="form-control" hidden="false"/>
-                                <form:label path="sexNombre">Nombre:</form:label>
+                                <form:input path="dirId" cssClass="form-control" hidden="false"/>
+                                <form:label path="dirNombre">Nombre:</form:label>
                                 
-                                <form:input path="sexNombre" cssClass="form-control" />
+                                <form:input path="dirNombre" cssClass="form-control" />
                             </p>
                            
                             <hr />

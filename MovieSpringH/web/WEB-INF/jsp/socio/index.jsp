@@ -1,36 +1,43 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>Sexo</title>
+        <title>Socios</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     </head>
     <body>
         <div class="container">
             <div class="row">
-                <h1>Sexo</h1>
+                <h1>Socios</h1>
                 <p>
-                    <a href="<c:url value="/sexo/add.htm" />" class="btn btn-success"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Agregar</a>
+                    <a href="<c:url value="add.htm" />" class="btn btn-success"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Agregar</a>
                 </p>
                 <table class="table table-bordered table-striped table-hover">
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Sexo</th>
-                            <th>Opciones</th>
+                            <th>Cedula</th>
+                            <th>Nombre</th>
+                            <th>Direccion</th>
+                            <th>Telefono</th>
+                            <th>Correo</th>
+                            <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <c:forEach items="${sexo}" var="datos">
+                        <c:forEach items="${socio}" var="datos">
                             <tr>
-                                <td><c:out value="${datos.getSexId()}" /></td>
-                                <td><c:out value="${datos.getSexNombre()}" /></td>
+                                <td><c:out value="${datos.getSocId()}" /></td>
+                                <td><c:out value="${datos.getSocCedula()}" /></td>
+                                <td><c:out value="${datos.getSocNombre()}" /></td>
+                                <td><c:out value="${datos.getSocDireccion()}" /></td>
+                                <td><c:out value="${datos.getSocTelefono()}" /></td>
+                                <td><c:out value="${datos.getSocCorreo()}" /></td>
                                 <td>
-                                    <a href="<c:url value="edit.htm?id=${datos.getSexId()}" />"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
-                                    <a href="<c:url value="delete.htm?id=${datos.getSexId()}" />"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+                                    <a href="<c:url value="edit.htm?id=${datos.getSocId()}" />"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+                                    <a href="<c:url value="delete.htm?id=${datos.getSocId()}" />"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
                                 </td>
                             </tr>
                         </c:forEach>

@@ -26,9 +26,8 @@
 
                             <p>
                                 
-                                <form:label path="sexId">ID</form:label>
                                 
-                                <form:input path="sexId" cssClass="form-control" hidden="false"/>
+                                <form:input path="sexId" cssClass="form-control" type="hidden"/>
                                 <form:label path="sexNombre">Nombre:</form:label>
                                 
                                 <form:input path="sexNombre" cssClass="form-control" />
