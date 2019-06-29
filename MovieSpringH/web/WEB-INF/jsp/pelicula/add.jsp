@@ -35,7 +35,7 @@
                                 <tbody>
                                     <tr>
                                         <td>
-                                               <form:label path="pelNombre">Nombre:</form:label>
+                                               <form:label   path="pelNombre">Nombre:</form:label>
                                                <form:input path="pelNombre" cssClass="form-control" />
                                         </td>
                                     <tr/>
@@ -61,7 +61,7 @@
                                     <tr>
                                         <td>
                                                 <form:label path="pelFechaEstreno">Fecha Estreno: </form:label>
-                                               <form:input path="pelFechaEstreno" cssClass="form-control" />
+                                                <form:input path="pelFechaEstreno" id="datepicker" cssClass="form-control" />
                                         </td>
                                     <tr/>  
                                     <tr>
@@ -79,10 +79,12 @@
                 </div>
             </div>
         </div
-    <script>
+             
+    </body>
+   
+</html>
+ <script>
     $(function () {
         $("#datepicker").datepicker();
     });
-    </script>               
-    </body>
-</html>
+ </script>  

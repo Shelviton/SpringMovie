@@ -47,8 +47,13 @@ public class PeliculaDAO {
     public static void Save(Pelicula ob)
     {
         try{
+        GeneroDAO.Save(ob.getGenero());
+        FormatoDAO.Save(ob.getFormato());
+        DirectorDAO.Save(ob.getDirector());
         Session session =HibernateUtil.getSessionFactory().openSession();
         Transaction tx=session.beginTransaction();
+        
+        
         session.saveOrUpdate(ob);
         tx.commit();
         session.close();

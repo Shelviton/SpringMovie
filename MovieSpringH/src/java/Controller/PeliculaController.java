@@ -9,6 +9,10 @@ package Controller;
 
 import Model.DAO.PeliculaDAO;
 import Model.POJO.Pelicula;
+import Model.POJO.Director;
+import Model.POJO.Formato;
+import Model.POJO.Genero;
+
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
@@ -88,6 +92,10 @@ public class PeliculaController {
         Pelicula datos=PeliculaDAO.getbyID(id);
         mav.setViewName("pelicula/edit");
         mav.addObject("pelicula",datos);
+        mav.addObject("director",new Director());
+        mav.addObject("genero",new Genero());
+        mav.addObject("formato",new Formato());
+        
         return mav;
     }
              
