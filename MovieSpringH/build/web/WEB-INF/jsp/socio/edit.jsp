@@ -5,13 +5,13 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <title>Hola desde Spring Web MVC</title>
+        <title>Editar</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     </head>
     <body>
         <div class="container">
             <ol class="breadcrumb">
-                <li><a href="<c:url value="/home.htm" />">Listado de productos</a></li>
+                <li><a href="<c:url value="socio/home.htm" />">Listado de Socios</a></li>
                 <li class="active">Editar</li>
             </ol>
             <div class="panel panel-primary">

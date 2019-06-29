@@ -5,7 +5,6 @@
  */
 package Controller;
 
-
 import Model.DAO.ActorDAO;
 import Model.DAO.SexoDAO;
 import Model.POJO.Actor;
@@ -21,105 +20,85 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 
-
 /**
  *
  * @author Jipson Murillo
  */
-@Controller 
+@Controller
 public class SexoController {
 
-    @RequestMapping(value = "/sexo/index.htm",method=RequestMethod.GET)
-    public String index(Model m){
-        
-           List<Sexo> list = SexoDAO.getlist();
-           m.addAttribute("sexo",list);
-        return "/sexo/index"; 
+    @RequestMapping(value = "/sexo/index.htm", method = RequestMethod.GET)
+    public String index(Model m) {
+
+        List<Sexo> list = SexoDAO.getlist();
+        m.addAttribute("sexo", list);
+        return "/sexo/index";
     }
 
-
-    
-    @RequestMapping(value = "/sexo/add.htm",method=RequestMethod.GET)
-    public ModelAndView save()
-    {
-        ModelAndView mav=new ModelAndView();
+    @RequestMapping(value = "/sexo/add.htm", method = RequestMethod.GET)
+    public ModelAndView save() {
+        ModelAndView mav = new ModelAndView();
         mav.setViewName("sexo/add");
-        mav.addObject("sexo",new Sexo());
+        mav.addObject("sexo", new Sexo());
         return mav;
     }
-        
-    @RequestMapping(value = "/sexo/add.htm",method=RequestMethod.POST)
-    public ModelAndView save
-        (
-                @ModelAttribute("Sexo") Sexo u,
-                BindingResult result,
-                SessionStatus status
-        )
-    {
-       
-        if(result.hasErrors())
-        {
-            ModelAndView mav=new ModelAndView();
+
+    @RequestMapping(value = "/sexo/add.htm", method = RequestMethod.POST)
+    public ModelAndView save(
+            @ModelAttribute("Sexo") Sexo u,
+            BindingResult result,
+            SessionStatus status
+    ) {
+
+        if (result.hasErrors()) {
+            ModelAndView mav = new ModelAndView();
             mav.setViewName("sexo/add");
-            mav.addObject("Sexo",new Sexo());
+            mav.addObject("Sexo", new Sexo());
             return mav;
-        }else
-        {
+        } else {
             SexoDAO.Save(u);
-            
-         return new ModelAndView("redirect:/sexo/index.htm");
+
+            return new ModelAndView("redirect:/sexo/index.htm");
         }
-       
-        
-        
-        
+
     }
-        
-    @RequestMapping(value = "/sexo/edit.htm",method=RequestMethod.GET)
-    public ModelAndView edit(HttpServletRequest request)
-    {
-        ModelAndView mav=new ModelAndView();
-        int id=Integer.parseInt(request.getParameter("id"));
-        Sexo datos=SexoDAO.getbyID(id);
+
+    @RequestMapping(value = "/sexo/edit.htm", method = RequestMethod.GET)
+    public ModelAndView edit(HttpServletRequest request) {
+        ModelAndView mav = new ModelAndView();
+        int id = Integer.parseInt(request.getParameter("id"));
+        Sexo datos = SexoDAO.getbyID(id);
         mav.setViewName("sexo/edit");
-        mav.addObject("sexo",datos);
+        mav.addObject("sexo", datos);
         return mav;
     }
-             
-    @RequestMapping(value = "/sexo/edit.htm",method=RequestMethod.POST)
-    public ModelAndView edit
-        (
-                @ModelAttribute("Sexo") Sexo u,
-                BindingResult result,
-                SessionStatus status
-        )
-    {
-       
-        if(result.hasErrors())
-        {
-            ModelAndView mav=new ModelAndView();
+
+    @RequestMapping(value = "/sexo/edit.htm", method = RequestMethod.POST)
+    public ModelAndView edit(
+            @ModelAttribute("Sexo") Sexo u,
+            BindingResult result,
+            SessionStatus status
+    ) {
+
+        if (result.hasErrors()) {
+            ModelAndView mav = new ModelAndView();
             mav.setViewName("sexo/edit");
-            mav.addObject("Sexo",new Sexo());
+            mav.addObject("Sexo", new Sexo());
             return mav;
-        }else
-        {
-          //  System.out.println("*************************************ID...."+id+"*************************");
+        } else {
+            //  System.out.println("*************************************ID...."+id+"*************************");
             SexoDAO.Save(u);
-            
-         return new ModelAndView("redirect:/sexo/index.htm");
+
+            return new ModelAndView("redirect:/sexo/index.htm");
         }
-       
-        
-        
-        
+
     }
-    
-    @RequestMapping(value = "/sexo/delete.htm",method=RequestMethod.GET)
-    public ModelAndView delete(HttpServletRequest request) 
-    {
-        int id=Integer.parseInt(request.getParameter("id"));
+
+    @RequestMapping(value = "/sexo/delete.htm", method = RequestMethod.GET)
+    public ModelAndView delete(HttpServletRequest request) {
+        int id = Integer.parseInt(request.getParameter("id"));
         SexoDAO.Delete(id);
         return new ModelAndView("redirect:/sexo/index.htm");
     }
-    
+
 }

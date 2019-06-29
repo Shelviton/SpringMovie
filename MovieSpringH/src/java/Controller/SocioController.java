@@ -25,6 +25,7 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 public class SocioController {
+    int id;
 
     @RequestMapping(value = "/socio/index.htm", method = RequestMethod.GET)
     public String index(Model m) {
@@ -52,7 +53,7 @@ public class SocioController {
         if (result.hasErrors()) {
             ModelAndView mav = new ModelAndView();
             mav.setViewName("socio/add");
-            mav.addObject("Socio", new Socio());
+            mav.addObject("socio", new Socio());
             return mav;
         } else {
             SocioDAO.Save(u);
@@ -64,7 +65,9 @@ public class SocioController {
     @RequestMapping(value = "/socio/edit.htm", method = RequestMethod.GET)
     public ModelAndView edit(HttpServletRequest request) {
         ModelAndView mav = new ModelAndView();
-        int id = Integer.parseInt(request.getParameter("id"));
+        id = Integer.parseInt(request.getParameter("id"));
+        //System.out.println("*************************************ID...." + id + "*************************");
+
         Socio datos = SocioDAO.getbyID(id);
         mav.setViewName("socio/edit");
         mav.addObject("socio", datos);
@@ -84,7 +87,8 @@ public class SocioController {
             mav.addObject("socio", new Socio());
             return mav;
         } else {
-            //  System.out.println("*************************************ID...."+id+"*************************");
+            //System.out.println("*************************************ID...." + u.getSocId() + "*************************");
+            u.setSocId(id);
             SocioDAO.Save(u);
 
             return new ModelAndView("redirect:/socio/index.htm");
