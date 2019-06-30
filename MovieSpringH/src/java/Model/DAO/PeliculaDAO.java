@@ -28,8 +28,10 @@ public class PeliculaDAO {
         list = query.list();
          System.out.println("********************************************");
             for (int i = 0; i < list.size(); i++) {
-                System.out.println(" "+list.get(i).getPelNombre()+" Genero: "+list.get(i).getGenero().getGenNombre()
-                                        +" Formato: "+list.get(i).getFormato().getForNombre()+" Director "+list.get(i).getDirector().getDirNombre());
+                System.out.println(" "+list.get(i).getPelNombre()
+                                  +" Genero: " +list.get(i).getGenero().getGenId()  +" "+ list.get(i).getGenero().getGenNombre() 
+                                  +" Formato: "+list.get(i).getFormato().getForId() +" "+ list.get(i).getFormato().getForNombre()
+                                  +" Director "+list.get(i).getDirector().getDirId()+" "+ list.get(i).getDirector().getDirNombre());
             }
              System.out.println("********************************************");
         
@@ -47,6 +49,7 @@ public class PeliculaDAO {
     public static void Save(Pelicula ob)
     {
         try{
+       
         GeneroDAO.Save(ob.getGenero());
         FormatoDAO.Save(ob.getFormato());
         DirectorDAO.Save(ob.getDirector());
@@ -62,6 +65,28 @@ public class PeliculaDAO {
         }
     }
     
+    public static void Update(Pelicula ob)
+    {
+        try{
+                 System.out.println("*****************UPDATE********************");    
+        System.out.println(" "+ob.getPelNombre()
+                                  +" Genero: " +ob.getGenero().getGenId()  +" "+ ob.getGenero().getGenNombre() 
+                                  +" Formato: "+ob.getFormato().getForId() +" "+ ob.getFormato().getForNombre()
+                                  +" Director "+ob.getDirector().getDirId()+" "+ ob.getDirector().getDirNombre());    
+        GeneroDAO.Save(ob.getGenero());
+        FormatoDAO.Save(ob.getFormato());
+        DirectorDAO.Save(ob.getDirector());
+        Session session =HibernateUtil.getSessionFactory().openSession();
+        Transaction tx=session.beginTransaction();
+        
+        
+        session.saveOrUpdate(ob);
+        tx.commit();
+        session.close();
+        }catch(Exception E){
+            E.printStackTrace();
+        }
+    }
     public static void Delete(int id)
     {
         try{
@@ -84,6 +109,15 @@ public class PeliculaDAO {
         Session session =HibernateUtil.getSessionFactory().openSession();
         Transaction tx=session.beginTransaction();
                obj =  (Pelicula) session.get(Pelicula.class, id);
+               obj.getDirector().getDirNombre();
+               obj.getDirector().getDirId();
+               obj.getDirector().getPeliculas();
+               obj.getFormato().getForNombre();
+               obj.getFormato().getForId();
+               obj.getFormato().getPeliculas();
+               obj.getGenero().getGenNombre();
+               obj.getGenero().getGenId();
+               obj.getGenero().getPeliculas();
         tx.commit();
         session.close();
         }catch(Exception E){
@@ -91,5 +125,5 @@ public class PeliculaDAO {
         }
         return obj;
     }
-    
+  
 }

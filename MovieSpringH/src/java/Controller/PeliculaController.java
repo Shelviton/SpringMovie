@@ -64,9 +64,7 @@ public class PeliculaController {
         {
             System.out.println(".............DATOS INCORRECTOS...........");
             System.out.println(result.toString());
-            System.out.println("D: "+u.getDirector().getDirNombre());
-            System.out.println("F: "+u.getFormato().getForNombre());
-            System.out.println("G: "+u.getGenero().getGenNombre());
+
             
             ModelAndView mav=new ModelAndView();
             mav.setViewName("pelicula/add");
@@ -92,15 +90,13 @@ public class PeliculaController {
         Pelicula datos=PeliculaDAO.getbyID(id);
         mav.setViewName("pelicula/edit");
         mav.addObject("pelicula",datos);
-        mav.addObject("director",new Director());
-        mav.addObject("genero",new Genero());
-        mav.addObject("formato",new Formato());
+
         
         return mav;
     }
              
     @RequestMapping(value = "/pelicula/edit.htm",method=RequestMethod.POST)
-    public ModelAndView edit
+     public ModelAndView edit
         (
                 @ModelAttribute("Pelicula") Pelicula u,
                 BindingResult result,
@@ -110,14 +106,17 @@ public class PeliculaController {
        
         if(result.hasErrors())
         {
+            System.out.println(".............DATOS INCORRECTOS...........");
+            System.out.println(result.toString());
+
+            
             ModelAndView mav=new ModelAndView();
             mav.setViewName("pelicula/edit");
-            mav.addObject("Pelicula",new Pelicula());
+            mav.addObject("pelicula",new Pelicula());
             return mav;
         }else
         {
-          //  System.out.println("*************************************ID...."+id+"*************************");
-            PeliculaDAO.Save(u);
+            PeliculaDAO.Update(u);
             
          return new ModelAndView("redirect:/pelicula/index.htm");
         }
@@ -126,6 +125,7 @@ public class PeliculaController {
         
         
     }
+        
     
     @RequestMapping(value = "/pelicula/delete.htm",method=RequestMethod.GET)
     public ModelAndView delete(HttpServletRequest request) 
