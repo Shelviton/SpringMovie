@@ -52,7 +52,7 @@ public class DropDownDAO {
     }
     public static Vector getViewDataFormato(){
        
-        List<Formato> lst = FormatoDAO.getlist();
+        List<Formato> lst =   FormatoDAO.getlist();
         Integer [] idArray = new Integer[lst.size()];
         String  []  nombreArray = new String[lst.size()];
         for (int i = 0; i <idArray.length  ; i++) {
