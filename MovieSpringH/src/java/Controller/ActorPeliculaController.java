@@ -32,7 +32,7 @@ public class ActorPeliculaController {
     public String index(Model m){
         
            List<ActorPelicula> list = ActorPeliculaDAO.getlist();
-           m.addAttribute("actorpelicula",list);
+           m.addAttribute("actor_pelicula",list);
         return "/actorpelicula/index"; 
     }
 
@@ -43,14 +43,14 @@ public class ActorPeliculaController {
     {
         ModelAndView mav=new ModelAndView();
         mav.setViewName("actorpelicula/add");
-        mav.addObject("actorpelicula",new ActorPelicula());
+        mav.addObject("actor_pelicula",new ActorPelicula());
         return mav;
     }
         
     @RequestMapping(value = "/actorpelicula/add.htm",method=RequestMethod.POST)
     public ModelAndView save
         (
-                @ModelAttribute("actorpelicula") ActorPelicula u,
+                @ModelAttribute("actor_pelicula") ActorPelicula u,
                 BindingResult result,
                 SessionStatus status
         )
@@ -60,7 +60,7 @@ public class ActorPeliculaController {
         {
             ModelAndView mav=new ModelAndView();
             mav.setViewName("actorpelicula/add");
-            mav.addObject("actorpelicula",new ActorPelicula());
+            mav.addObject("actor_pelicula",new ActorPelicula());
             return mav;
         }else
         {
@@ -81,14 +81,14 @@ public class ActorPeliculaController {
         int id=Integer.parseInt(request.getParameter("id"));
         ActorPelicula datos=ActorPeliculaDAO.getbyID(id);
         mav.setViewName("actorpelicula/edit");
-        mav.addObject("actorpelicula",datos);
+        mav.addObject("actor_pelicula",datos);
         return mav;
     }
              
     @RequestMapping(value = "/actorpelicula/edit.htm",method=RequestMethod.POST)
     public ModelAndView edit
         (
-                @ModelAttribute("actorpelicula") ActorPelicula u,
+                @ModelAttribute("actor_pelicula") ActorPelicula u,
                 BindingResult result,
                 SessionStatus status
         )
@@ -98,7 +98,7 @@ public class ActorPeliculaController {
         {
             ModelAndView mav=new ModelAndView();
             mav.setViewName("actorpelicula/edit");
-            mav.addObject("actorpelicula",new ActorPelicula());
+            mav.addObject("actor_pelicula",new ActorPelicula());
             return mav;
         }else
         {

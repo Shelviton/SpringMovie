@@ -41,7 +41,7 @@ public class ActorController {
     {
         ModelAndView mav=new ModelAndView();
         mav.setViewName("actor/add");
-        mav.addObject("actor",new Sexo());
+        mav.addObject("actor",new Actor());
         return mav;
     }
         
@@ -77,9 +77,9 @@ public class ActorController {
     {
         ModelAndView mav=new ModelAndView();
         int id=Integer.parseInt(request.getParameter("id"));
-        Sexo datos=SexoDAO.getbyID(id);
+        Actor datos=ActorDAO.getbyID(id);
         mav.setViewName("actor/edit");
-        mav.addObject("Actor",datos);
+        mav.addObject("actor",datos);
         return mav;
     }
           

@@ -39,77 +39,47 @@
                             <form:errors path="*" element="div" cssClass="alert alert-danger" />
                             
 
-                            <p>
-                               
-                                
-                            </p>
+                              <p>
+                                     <form:label   path="pelNombre">Nombre:</form:label>
+                                     <form:input path="pelNombre" cssClass="form-control" />
+                              </p>
+                              <p>
+                                     <form:label path="director.dirNombre">Director:</form:label>
+                                     <form:select path="director.dirNombre" id="selectDN" items="<%= Directores.get(1) %>" itemsLabel="Director"  cssClass="form-control" />
+                              </p>
+                              <p>
+                                     <form:label path="genero.genNombre">Genero:</form:label>
+                                     <form:select path="genero.genNombre" id="selectGN" items="<%= Generos.get(1) %>" itemsLabel="Generos"  cssClass="form-control" />
+                              </p>
+                              <p>
+                                     <form:label path="formato.forNombre">Formato:</form:label>
+                                     <form:select path="formato.forNombre" id="selectFN" items="<%= Formatos.get(1) %>" itemsLabel="Formato"  cssClass="form-control" />
+                              </p>
+             
                             <table>
                                 <tbody>
-                                    <tr style="display:none;">
+                                    <tr style="display:none;" name="ids">
                                         <td>
-                                               <form:label   path="pelId">Nombre:</form:label>
-                                               <form:input path="pelId" cssClass="form-control"  />
+                                             <form:input path="pelId" cssClass="form-control"  />
+                                             <form:select path="director.dirId" id="selectDid" items="<%= Directores.get(0) %>" itemsLabel="Director"  cssClass="form-control" />
+                                             <form:select path="genero.genId" id="selectGid" items="<%= Generos.get(0) %>" itemsLabel="Generos"  cssClass="form-control" />
+                                             <form:select path="formato.forId" id="selectFid" items="<%= Formatos.get(0) %>" itemsLabel="Formato"  cssClass="form-control" />
                                         </td>
                                     <tr/>
-                                    <tr>
-                                        <td>
-                                               <form:label   path="pelNombre">Nombre:</form:label>
-                                               <form:input path="pelNombre" cssClass="form-control" />
-                                        </td>
-                                    <tr/>
-                                    <tr style="display:none;">
-                                        <td>
-                                               <form:label   path="director.dirId">Director ID:</form:label>
-                                                <form:select path="director.dirId" id="selectDid" items="<%= Directores.get(0) %>" itemsLabel="Director"  cssClass="form-control" />
-                                        </td>
-                                        
-                                    <tr/>
-                                    <tr>
-                                        <td>
-                                               <form:label path="director.dirNombre">Director:</form:label>
-                                               <form:select path="director.dirNombre" id="selectDN" items="<%= Directores.get(1) %>" itemsLabel="Director"  cssClass="form-control" />
-                                        </td>
-                                      
-                                    <tr/>
-                                    <tr style="display:none;" >
-                                        <td>
-                                               <form:label path="genero.genId">Genero ID:</form:label>
-                                               <form:select path="genero.genId" id="selectGid" items="<%= Generos.get(0) %>" itemsLabel="Generos"  cssClass="form-control" />
-                                        </td>
-                                    <tr/>  
-                                    <tr>
-                                        <td>
-                                               <form:label path="genero.genNombre">Genero:</form:label>
-                                               <form:select path="genero.genNombre" id="selectGN" items="<%= Generos.get(1) %>" itemsLabel="Generos"  cssClass="form-control" />
-                                        </td>
-                                    <tr/>  
-                                    <tr style="display:none;">
-                                        <td>
-                                               <form:label path="formato.forId">Formato ID:</form:label>
-                                               <form:select path="formato.forId" id="selectFid" items="<%= Formatos.get(0) %>" itemsLabel="Formato"  cssClass="form-control" />
-                                        </td>
-                                    <tr/>
-                                    <tr>
-                                        <td>
-                                               <form:label path="formato.forNombre">Formato:</form:label>
-                                               <form:select path="formato.forNombre" id="selectFN" items="<%= Formatos.get(1) %>" itemsLabel="Formato"  cssClass="form-control" />
-                                        </td>
-                                    <tr/>
+                                    
                                     <tr>
                                         <td>
                                                 <form:label path="pelFechaEstreno" >Fecha Estreno: </form:label>
                                                 <form:input path="pelFechaEstreno" id="datepicker" cssClass="form-control" />
                                         </td>
                                     <tr/>  
-                                    <tr>
-                                        <td>
-                                               <form:label path="pelCosto">Costo</form:label>
-                                               <form:input path="pelCosto" id="datepicker" cssClass="form-control" />
-                                        </td>
-                                    <tr/>  
+                      
                                 </tbody>
                             <table/>
-                            
+                              <p>
+                                     <form:label path="pelCosto">Costo</form:label>
+                                     <form:input path="pelCosto" id="datepicker" cssClass="form-control" />
+                              </p>
                             <hr />
                             <input type="submit" value="Enviar" class="btn btn-danger" />
                         </form:form>

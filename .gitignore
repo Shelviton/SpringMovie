@@ -14,3 +14,5 @@ MovieSpringH/build/web/WEB-INF/glassfish-web.xml
 MovieSpringH/build/web/WEB-INF/lib/org-apache-commons-logging.jar
 MovieSpringH/build/web/WEB-INF/glassfish-web.xml
 MovieSpringH/build/web/WEB-INF/lib/org-apache-commons-logging.jar
+
+MovieSpringH/nbproject/private/

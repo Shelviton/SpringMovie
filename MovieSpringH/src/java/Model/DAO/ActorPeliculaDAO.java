@@ -22,9 +22,19 @@ public class ActorPeliculaDAO {
         List<ActorPelicula> list=null;
         try{
         Session session =HibernateUtil.getSessionFactory().openSession();
-        String hql="from ActorPelicula";
-        Query query =session.createQuery(hql);
-        list = query.list();
+        Transaction tx=session.beginTransaction();
+        String sql="select * from actor_Pelicula";
+        Query query =session.createSQLQuery(sql).addEntity(ActorPelicula.class);
+        
+        
+        list = ( List<ActorPelicula>)query.list();
+         System.out.println("********************************************");
+            for (int i = 0; i < list.size(); i++) {
+                System.out.println(list.get(i).getAplId()+" "+list.get(i).getAplPapel()+" Actor: "+list.get(i).getActor().getActId()+" "+list.get(i).getActor().getActNombre()
+                                   +" Pelicula: "+list.get(i).getPelicula().getPelId()+" "+list.get(i).getPelicula().getPelNombre());
+            }
+             System.out.println("********************************************");
+          tx.commit();
         session.close();
         }catch(Exception E){
             E.printStackTrace();
@@ -72,6 +82,12 @@ public class ActorPeliculaDAO {
         Session session =HibernateUtil.getSessionFactory().openSession();
         Transaction tx=session.beginTransaction();
                obj =  (ActorPelicula) session.get(ActorPelicula.class, id);
+               obj.getActor().getActId();
+               obj.getActor().getActNombre();
+               obj.getActor().getActorPeliculas();
+               obj.getPelicula().getPelNombre();
+               obj.getPelicula().getPelId();
+
         tx.commit();
         session.close();
         }catch(Exception E){

@@ -5,15 +5,15 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>Sexo</title>
+        <title>Actor</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     </head>
     <body>
         <div class="container">
             <div class="row">
-                <h1>Sexo</h1>
+                <h1>Actor</h1>
                 <p>
-                    <a href="<c:url value="/sexo/add.htm" />" class="btn btn-success"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Agregar</a>
+                    <a href="<c:url value="/actor/add.htm" />" class="btn btn-success"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Agregar</a>
                 </p>
                 <table class="table table-bordered table-striped table-hover">
                     <thead>

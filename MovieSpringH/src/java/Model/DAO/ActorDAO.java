@@ -28,7 +28,7 @@ public class ActorDAO {
         list = query.list();
              System.out.println("********************************************");
             for (int i = 0; i < list.size(); i++) {
-                System.out.println(" "+list.get(i).getActNombre()+" Sexo: "+list.get(i).getSexo().getSexNombre());
+                System.out.println(" "+list.get(i).getActNombre()+" Sexo: "+list.get(i).getSexo().getSexId()+" "+list.get(i).getSexo().getSexNombre());
             }
              System.out.println("********************************************");
         session.close();
@@ -62,8 +62,9 @@ public class ActorDAO {
         Transaction tx=session.beginTransaction();
         Actor ob=ActorDAO.getbyID(id);
         session.delete(ob);
+        tx.commit();  
         session.close();
-        tx.commit();    
+  
        }catch(Exception E){
             E.printStackTrace();
         }
@@ -77,6 +78,8 @@ public class ActorDAO {
         Session session =HibernateUtil.getSessionFactory().openSession();
         Transaction tx=session.beginTransaction();
                actor =  (Actor) session.get(Actor.class, id);
+               actor.getSexo().getSexId();
+               actor.getSexo().getSexNombre();
         tx.commit();
         session.close();
         }catch(Exception E){
