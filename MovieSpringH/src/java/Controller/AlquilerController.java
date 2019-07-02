@@ -8,6 +8,7 @@ package Controller;
 
 import Model.DAO.AlquilerDAO;
 import Model.POJO.Alquiler;
+import java.util.Date;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
@@ -31,7 +32,7 @@ public class AlquilerController {
     public String index(Model m){
         
            List<Alquiler> list = AlquilerDAO.getlist();
-           m.addAttribute("Alquiler",list);
+           m.addAttribute("alquiler",list);
         return "/alquiler/index"; 
     }
 
@@ -42,14 +43,14 @@ public class AlquilerController {
     {
         ModelAndView mav=new ModelAndView();
         mav.setViewName("alquiler/add");
-        mav.addObject("Alquiler",new Alquiler());
+        mav.addObject("alquiler",new Alquiler());
         return mav;
     }
         
     @RequestMapping(value = "/alquiler/add.htm",method=RequestMethod.POST)
     public ModelAndView save
         (
-                @ModelAttribute("Alquiler") Alquiler u,
+                @ModelAttribute("alquiler") Alquiler u,
                 BindingResult result,
                 SessionStatus status
         )
@@ -57,20 +58,27 @@ public class AlquilerController {
        
         if(result.hasErrors())
         {
+            if(!(u.getAlqFechaEntrega()==null)){
             ModelAndView mav=new ModelAndView();
             mav.setViewName("alquiler/add");
-            mav.addObject("Alquiler",new Alquiler());
+
+            mav.addObject("alquiler",new Alquiler());
             return mav;
+                
+            }
+            else{
+                        AlquilerDAO.Save(u);
+            
+            return new ModelAndView("redirect:/alquiler/index.htm");
+            }
+            
         }else
         {
             AlquilerDAO.Save(u);
             
-         return new ModelAndView("redirect:/alquiler/index.htm");
+            return new ModelAndView("redirect:/alquiler/index.htm");
         }
        
-        
-        
-        
     }
         
     @RequestMapping(value = "/alquiler/edit.htm",method=RequestMethod.GET)
@@ -80,14 +88,14 @@ public class AlquilerController {
         int id=Integer.parseInt(request.getParameter("id"));
         Alquiler datos=AlquilerDAO.getbyID(id);
         mav.setViewName("alquiler/edit");
-        mav.addObject("Alquiler",datos);
+        mav.addObject("alquiler",datos);
         return mav;
     }
              
     @RequestMapping(value = "/alquiler/edit.htm",method=RequestMethod.POST)
     public ModelAndView edit
         (
-                @ModelAttribute("Alquiler") Alquiler u,
+                @ModelAttribute("alquiler") Alquiler u,
                 BindingResult result,
                 SessionStatus status
         )
@@ -97,7 +105,7 @@ public class AlquilerController {
         {
             ModelAndView mav=new ModelAndView();
             mav.setViewName("alquiler/edit");
-            mav.addObject("Alquiler",new Alquiler());
+            mav.addObject("alquiler",new Alquiler());
             return mav;
         }else
         {

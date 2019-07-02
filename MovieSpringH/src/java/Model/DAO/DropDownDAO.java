@@ -8,10 +8,10 @@ package Model.DAO;
 import Model.POJO.Director;
 import Model.POJO.Genero;
 import Model.POJO.Formato;
+import Model.POJO.Socio;
 import Model.POJO.Pelicula;
 import Model.POJO.Sexo;
 import Model.POJO.Actor;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
@@ -113,4 +113,20 @@ public class DropDownDAO {
         
         return datos ;
     }
+      
+     public static Vector getViewDataSocio(){
+       
+        List<Socio> lst = SocioDAO.getlist();
+        Integer [] idArray = new Integer[lst.size()];
+        String  []  nombreArray = new String[lst.size()];
+        for (int i = 0; i <idArray.length  ; i++) {
+            idArray[i]=lst.get(i).getSocId();
+            nombreArray[i]=lst.get(i).getSocNombre();
+        }
+        Vector datos = new Vector();
+        datos.add(idArray);
+        datos.add(nombreArray);
+        
+        return datos ;
+    }  
 }

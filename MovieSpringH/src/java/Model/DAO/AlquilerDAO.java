@@ -26,6 +26,15 @@ public class AlquilerDAO {
         String hql="from Alquiler";
         Query query =session.createQuery(hql);
         list = query.list();
+         System.out.println("********************************************");
+            for (int i = 0; i < list.size(); i++) {
+                System.out.println("Alquiler "+list.get(i).getAlqId()
+                                  +" Socio: " +list.get(i).getSocio().getSocId()  +" "+ list.get(i).getSocio().getSocNombre() 
+                                  +" Pelicula: "+list.get(i).getPelicula().getPelId() +" "+ list.get(i).getPelicula().getPelNombre()
+                                  +" Fechas: A | V | E"+list.get(i).getAlqFechaDesde()+" "+ list.get(i).getAlqFechaHasta()+" "+ list.get(i).getAlqFechaEntrega());
+            }
+             System.out.println("********************************************");
+        
         session.close();
         }catch(Exception E){
             E.printStackTrace();
@@ -72,6 +81,9 @@ public class AlquilerDAO {
         Session session =HibernateUtil.getSessionFactory().openSession();
         Transaction tx=session.beginTransaction();
                obj =  (Alquiler) session.get(Alquiler.class, id);
+               obj.getPelicula().getPelId();
+               obj.getPelicula().getPelNombre();
+               obj.getSocio().getSocNombre();
         tx.commit();
         session.close();
         }catch(Exception E){
