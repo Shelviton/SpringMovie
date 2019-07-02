@@ -31,7 +31,7 @@ public class AlquilerDAO {
                 System.out.println("Alquiler "+list.get(i).getAlqId()
                                   +" Socio: " +list.get(i).getSocio().getSocId()  +" "+ list.get(i).getSocio().getSocNombre() 
                                   +" Pelicula: "+list.get(i).getPelicula().getPelId() +" "+ list.get(i).getPelicula().getPelNombre()
-                                  +" Fechas: A | V | E"+list.get(i).getAlqFechaDesde()+" "+ list.get(i).getAlqFechaHasta()+" "+ list.get(i).getAlqFechaEntrega());
+                                  +" Fechas: A | V | E "+list.get(i).getAlqFechaDesde()+" "+ list.get(i).getAlqFechaHasta()+" "+ list.get(i).getAlqFechaEntrega());
             }
              System.out.println("********************************************");
         
