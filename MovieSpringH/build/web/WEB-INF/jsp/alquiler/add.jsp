@@ -17,8 +17,8 @@
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     </head>
-        <% Vector Peliculas = DropDownDAO.getViewDataPelicula();
-           Vector Socios = DropDownDAO.getViewDataSocio(); %>
+    <% Vector Peliculas = DropDownDAO.getViewDataPelicula();
+            Vector Socios = DropDownDAO.getViewDataSocio();%>
     <body>
         <div class="container">
             <ol class="breadcrumb">
@@ -29,88 +29,88 @@
                 <div class="panel-heading">Formulario</div>
                 <div class="panel-body">
                     <form:form method="post" commandName="alquiler">
-                            <h1>Complete el formulario</h1>
-                            
-                            <form:errors path="*" element="div" cssClass="alert alert-danger" />
-                            
+                        <h1>Nuevo Alquiler</h1>
 
-                              <p>
-                                  
-                              </p>
-                              <p>
-                                     <form:label path="socio.socNombre">Socio:</form:label>
-                                     <form:select path="socio.socNombre" id="selectSON" items="<%= Socios.get(1) %>" itemsLabel="Director"  cssClass="form-control" />
-                              </p>
-                              <p>
-                                     <form:label path="pelicula.pelNombre">Pelicula</form:label>
-                                     <form:select path="pelicula.pelNombre" id="selectPN" items="<%= Peliculas.get(1) %>" itemsLabel="Generos"  cssClass="form-control" />
-                              </p>
-                     
-             
-                            <table>
-                                <tbody>
-                                    <tr style="display:none;" name="ids">
-                                        <td>
-                                             <form:input path="alqId" cssClass="form-control"  />
-                                             <form:select path="socio.socId" id="selectSOid" items="<%= Socios.get(0) %>" itemsLabel="Generos"  cssClass="form-control" />
-                                             <form:select path="pelicula.pelId" id="selectPid" items="<%= Peliculas.get(0) %>" itemsLabel="Director"  cssClass="form-control" />
-                                            
-                                            
-                                        </td>
-                                    <tr/>
-                                    
-                                    <tr>
-                                        <td>
-                                                <form:label path="alqFechaDesde" >Fecha Alquiler: </form:label>
-                                                <form:input path="alqFechaDesde" id="datepickerD" cssClass="form-control" />
-                                        </td>
-                                    <tr/>  
-                                    
-                                    <tr>
-                                        <td>
-                                                <form:label path="alqFechaHasta" >Fecha Vencimiento: </form:label>
-                                                <fmt:formatDate var="fmtDate"  value="${form.bean.dateProperty}"  pattern="dd/MM/yyyy"/>
-                                                <form:input name="bean.dateProperty" path="alqFechaHasta" id="datepickerH" cssClass="form-control"  value="${fmtDate}" />                                                
-                                        </td>
-                                    <tr/>  
-                                    <tr>
-                                        <td style="display:nonse;" >
-                                                <form:label path="alqFechaEntrega" >Fecha Entrega: </form:label>
-                                                <form:input path="alqFechaEntrega" id="datepickerE" cssClass="form-control" />
-                                        </td>
-                                    <tr/>  
-                      
-                                </tbody>
+                        <form:errors path="*" element="div" cssClass="alert alert-danger" />
+
+
+                        <p>
+
+                        </p>
+                        <p>
+                            <form:label path="socio.socNombre">Socio:</form:label>
+                            <form:select path="socio.socNombre" id="selectSON" items="<%= Socios.get(1)%>" itemsLabel="Director"  cssClass="form-control" />
+                        </p>
+                        <p>
+                            <form:label path="pelicula.pelNombre">Pelicula</form:label>
+                            <form:select path="pelicula.pelNombre" id="selectPN" items="<%= Peliculas.get(1)%>" itemsLabel="Generos"  cssClass="form-control" />
+                        </p>
+
+
+                        <table>
+                            <tbody>
+                                <tr style="display:none;" name="ids">
+                                    <td>
+                                        <form:input path="alqId" cssClass="form-control"  />
+                                        <form:select path="socio.socId" id="selectSOid" items="<%= Socios.get(0)%>" itemsLabel="Generos"  cssClass="form-control" />
+                                        <form:select path="pelicula.pelId" id="selectPid" items="<%= Peliculas.get(0)%>" itemsLabel="Director"  cssClass="form-control" />
+
+
+                                    </td>
+                                <tr/>
+
+                                <tr>
+                                    <td>
+                                        <form:label path="alqFechaDesde" >Fecha Alquiler: </form:label>
+                                        <form:input path="alqFechaDesde" id="datepickerD" cssClass="form-control" />
+                                    </td>
+                                <tr/>  
+
+                                <tr>
+                                    <td>
+                                        <form:label path="alqFechaHasta" >Fecha Vencimiento: </form:label>
+                                        <fmt:formatDate var="fmtDate"  value="${form.bean.dateProperty}"  pattern="dd/MM/yyyy"/>
+                                        <form:input name="bean.dateProperty" path="alqFechaHasta" id="datepickerH" cssClass="form-control"  value="${fmtDate}" />                                                
+                                    </td>
+                                <tr/>  
+                                <tr>
+                                    <td style="display:nonse;" >
+                                        <form:label path="alqFechaEntrega" >Fecha Entrega: </form:label>
+                                        <form:input path="alqFechaEntrega" id="datepickerE" cssClass="form-control" />
+                                    </td>
+                                <tr/>  
+
+                            </tbody>
                             <table/>
-                              <p>
-                                     <form:label path="alqValor">Valor Alquiler</form:label>
-                                     <form:input path="alqValor" id="datepicker" cssClass="form-control" />
-                              </p>
+                            <p>
+                                <form:label path="alqValor">Valor Alquiler</form:label>
+                                <form:input path="alqValor" id="datepicker" cssClass="form-control" />
+                            </p>
                             <hr />
                             <input type="submit" value="Enviar" class="btn btn-danger" />
-                    </form:form>
+                        </form:form>
                 </div>
             </div>
         </div
-             
+
     </body>
-   
+
 </html>
- <script>
-   $( "#selectPN" ) .change(function () {    
-           $("#selectPid")[0].selectedIndex=$("#selectPN")[0].selectedIndex;
-           
-    });  
-     $( "#selectSON" ) .change(function () {    
-           $("#selectSOid")[0].selectedIndex=$("#selectSON")[0].selectedIndex;
-           
-    });  
-     
-    
+<script>
+    $("#selectPN").change(function () {
+        $("#selectPid")[0].selectedIndex = $("#selectPN")[0].selectedIndex;
+
+    });
+    $("#selectSON").change(function () {
+        $("#selectSOid")[0].selectedIndex = $("#selectSON")[0].selectedIndex;
+
+    });
+
+
     $(function () {
         $("#datepickerD").datepicker();
         $("#datepickerH").datepicker();
         $("#datepickerE").datepicker();
-        
+
     });
- </script>  
+</script>  

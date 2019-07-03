@@ -3,12 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/PC/Jipson%20Murillo/Documents/GitHub/Spring/SpringMovie/MovieSpringH/web/WEB-INF/jsp/alquiler/index.jsp</file>
-            <file>file:/D:/PC/Jipson%20Murillo/Documents/GitHub/Spring/SpringMovie/MovieSpringH/src/java/Model/DAO/ActorDAO.java</file>
-            <file>file:/D:/PC/Jipson%20Murillo/Documents/GitHub/Spring/SpringMovie/MovieSpringH/web/WEB-INF/jsp/alquiler/add.jsp</file>
-            <file>file:/D:/PC/Jipson%20Murillo/Documents/GitHub/Spring/SpringMovie/MovieSpringH/src/java/Controller/DirectorController.java</file>
-            <file>file:/D:/PC/Jipson%20Murillo/Documents/GitHub/Spring/SpringMovie/MovieSpringH/src/java/Model/DAO/DropDownDAO.java</file>
-            <file>file:/D:/PC/Jipson%20Murillo/Documents/GitHub/Spring/SpringMovie/MovieSpringH/web/WEB-INF/jsp/alquiler/edit.jsp</file>
+            <file>file:/D:/Developer/SpringMovie/MovieSpringH/web/WEB-INF/dispatcher-servlet.xml</file>
+            <file>file:/D:/Developer/SpringMovie/MovieSpringH/web/WEB-INF/jsp/header.jsp</file>
+            <file>file:/D:/Developer/SpringMovie/MovieSpringH/web/WEB-INF/jsp/nav-bar.jsp</file>
+            <file>file:/D:/Developer/SpringMovie/MovieSpringH/web/WEB-INF/jsp/index.jsp</file>
+            <file>file:/D:/Developer/SpringMovie/MovieSpringH/web/WEB-INF/applicationContext.xml</file>
+            <file>file:/D:/Developer/SpringMovie/MovieSpringH/web/WEB-INF/web.xml</file>
         </group>
     </open-files>
 </project-private>

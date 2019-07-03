@@ -8,6 +8,8 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     </head>
     <body>
+        <%@include file="../header-form.jsp"%>
+        <%@include file="../bg-form.jsp"%>
         <div class="container">
             <div class="row">
                 <h1>Socios</h1>
