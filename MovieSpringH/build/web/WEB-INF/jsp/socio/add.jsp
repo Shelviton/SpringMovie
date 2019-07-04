@@ -9,6 +9,8 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     </head>
     <body>
+        <%@include file="../header-form.jsp"%>
+        <%@include file="../bg-form.jsp"%>
         <div class="container">
             <ol class="breadcrumb">
                 <li><a href="<c:url value="/socio/home.htm" />">Socios</a></li>

@@ -125,5 +125,28 @@ public class PeliculaDAO {
         }
         return obj;
     }
+    public static List<Pelicula> getReporteValor(double valor)
+    {
+        List<Pelicula> list=null;
+        try{
+        Session session =HibernateUtil.getSessionFactory().openSession();
+        String hql="from Pelicula pelicula where pelicula.pelCosto="+valor+"";
+        Query query =session.createQuery(hql);
+        list = query.list();
+         System.out.println("********************************************");
+            for (int i = 0; i < list.size(); i++) {
+                System.out.println(" "+list.get(i).getPelNombre()
+                                  +" Genero: " +list.get(i).getGenero().getGenId()  +" "+ list.get(i).getGenero().getGenNombre() 
+                                  +" Formato: "+list.get(i).getFormato().getForId() +" "+ list.get(i).getFormato().getForNombre()
+                                  +" Director "+list.get(i).getDirector().getDirId()+" "+ list.get(i).getDirector().getDirNombre());
+            }
+             System.out.println("********************************************");
+        
+        session.close();
+        }catch(Exception E){
+            E.printStackTrace();
+        }
+        return list;   
+    }
   
 }

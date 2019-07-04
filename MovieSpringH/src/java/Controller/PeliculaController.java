@@ -21,6 +21,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -133,6 +134,21 @@ public class PeliculaController {
         int id=Integer.parseInt(request.getParameter("id"));
         PeliculaDAO.Delete(id);
         return new ModelAndView("redirect:/pelicula/index.htm");
+    }
+    
+     @RequestMapping(value = "/pelicula/reportevalor.htm",method=RequestMethod.GET)
+    public String reportevalor(Model m){
+        
+           List<Pelicula> list = PeliculaDAO.getlist();
+           m.addAttribute("pelicula",list);
+        return "/pelicula/reportevalor"; 
+    }
+    
+    @RequestMapping(value = "/pelicula/reportevalor.htm",method=RequestMethod.POST)
+    public String reportevalor(Model m,@RequestParam("valor") double valor){
+           List<Pelicula> list = PeliculaDAO.getReporteValor(valor);
+           m.addAttribute("pelicula",list);
+        return "/pelicula/reportevalor"; 
     }
     
 }

@@ -22,13 +22,16 @@
                             <h1>Complete el formulario ${director.getDirId()}</h1>
                             
                             <form:errors path="*" element="div" cssClass="alert alert-danger" />
-                            
+                            <p style="display:none;">
+                                   <form:label path="dirId">ID</form:label>
+                                   <form:input path="dirId" cssClass="form-control" hidden="false"/>
+                            </p>
 
                             <p>
                                 
-                                <form:label path="dirId">ID</form:label>
+                              
                                 
-                                <form:input path="dirId" cssClass="form-control" hidden="false"/>
+                             
                                 <form:label path="dirNombre">Nombre:</form:label>
                                 
                                 <form:input path="dirNombre" cssClass="form-control" />

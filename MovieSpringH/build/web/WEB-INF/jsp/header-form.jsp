@@ -62,6 +62,7 @@
                                     <li><a href="/MovieSpringH/formato/index.htm">Formato</a></li>
                                 </ul>
                             </li>
+                            <li><a href="/MovieSpringH/pelicula/reportevalor.htm">Reporte por valor</a></li>
                         </ul>
                     </li>
                     <li class="dropdown first">

@@ -23,9 +23,11 @@ public class SexoDAO {
         List<Sexo> list=null;
         try{
         Session session =HibernateUtil.getSessionFactory().openSession();
+          Transaction tx=session.beginTransaction();
         String hql="from Sexo";
         Query query =session.createQuery(hql);
         list = query.list();
+        tx.commit();
         session.close();
         }catch(Exception E){
             E.printStackTrace();

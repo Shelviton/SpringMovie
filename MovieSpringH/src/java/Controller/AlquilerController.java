@@ -8,8 +8,12 @@ package Controller;
 
 import Model.DAO.AlquilerDAO;
 import Model.POJO.Alquiler;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -86,7 +90,15 @@ public class AlquilerController {
     {
         ModelAndView mav=new ModelAndView();
         int id=Integer.parseInt(request.getParameter("id"));
+        
         Alquiler datos=AlquilerDAO.getbyID(id);
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+        try {
+            datos.setAlqFechaDesde(format.parse(datos.getAlqFechaDesde().toString()));
+            System.out.println("******"+datos.getAlqFechaDesde().toString());
+        } catch (ParseException ex) {
+            System.out.println(ex.getMessage());
+        }
         mav.setViewName("alquiler/edit");
         mav.addObject("alquiler",datos);
         return mav;

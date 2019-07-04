@@ -22,13 +22,16 @@
                             <h1>Complete el formulario ${formato.getForId()}</h1>
                             
                             <form:errors path="*" element="div" cssClass="alert alert-danger" />
-                            
+                            <p style="display:none;">
+                                <form:input path="forId" cssClass="form-control" hidden="false"/>
+                                   
+                                <form:label path="forId">ID</form:label>
+   
+                            </p>
+
 
                             <p>
                                 
-                                <form:label path="forId">ID</form:label>
-                                
-                                <form:input path="forId" cssClass="form-control" hidden="false"/>
                                 <form:label path="forNombre">Nombre:</form:label>
                                 
                                 <form:input path="forNombre" cssClass="form-control" />

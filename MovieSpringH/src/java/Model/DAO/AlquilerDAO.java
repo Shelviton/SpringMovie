@@ -23,6 +23,7 @@ public class AlquilerDAO {
         List<Alquiler> list=null;
         try{
         Session session =HibernateUtil.getSessionFactory().openSession();
+          Transaction tx=session.beginTransaction();
         String hql="from Alquiler";
         Query query =session.createQuery(hql);
         list = query.list();
@@ -34,7 +35,7 @@ public class AlquilerDAO {
                                   +" Fechas: A | V | E "+list.get(i).getAlqFechaDesde()+" "+ list.get(i).getAlqFechaHasta()+" "+ list.get(i).getAlqFechaEntrega());
             }
              System.out.println("********************************************");
-        
+        tx.commit();
         session.close();
         }catch(Exception E){
             E.printStackTrace();

@@ -23,12 +23,14 @@
                             
                             <form:errors path="*" element="div" cssClass="alert alert-danger" />
                             
-
-                            <p>
-                                
-                                <form:label path="sexId">ID</form:label>
+                            <p style="display:none;">
+                                 <form:label path="sexId">ID</form:label>
                                 
                                 <form:input path="sexId" cssClass="form-control" hidden="false"/>
+                            </p>
+                            <p>
+                                
+                               
                                 <form:label path="sexNombre">Nombre:</form:label>
                                 
                                 <form:input path="sexNombre" cssClass="form-control" />

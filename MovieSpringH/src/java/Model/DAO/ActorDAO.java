@@ -23,6 +23,8 @@ public class ActorDAO {
         List<Actor> list=null;
         try{
         Session session =HibernateUtil.getSessionFactory().openSession();
+        
+         Transaction tx=session.beginTransaction();
         String hql="from Actor";
         Query query =session.createQuery(hql);
         list = query.list();
@@ -31,6 +33,7 @@ public class ActorDAO {
                 System.out.println(" "+list.get(i).getActNombre()+" Sexo: "+list.get(i).getSexo().getSexId()+" "+list.get(i).getSexo().getSexNombre());
             }
              System.out.println("********************************************");
+             tx.commit();
         session.close();
         }catch(Exception E){
             E.printStackTrace();

@@ -22,13 +22,15 @@
                             <h1>Complete el formulario ${genero.getGenId()}</h1>
                             
                             <form:errors path="*" element="div" cssClass="alert alert-danger" />
-                            
+                            <p style="display:none;">
+                                 <form:label path="genId">ID</form:label>
+                                
+                                <form:input path="genId" cssClass="form-control" hidden="false"/>
+                            </p>
 
                             <p>
                                 
-                                <form:label path="genId">ID</form:label>
-                                
-                                <form:input path="genId" cssClass="form-control" hidden="false"/>
+                               
                                 <form:label path="genNombre">Nombre:</form:label>
                                 
                                 <form:input path="genNombre" cssClass="form-control" />
