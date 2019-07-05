@@ -9,8 +9,23 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     </head>
     <body>
-        <%@include file="../header-form.jsp"%>
-        <%@include file="../bg-form.jsp"%>
+         <%@include file="../templateheader.jsp"%>
+         <div class="hero common-hero">
+            <div class="container">
+                    <div class="row">
+                            <div class="col-md-12">
+                                    <div class="hero-ct">
+                                            <h1>Genero</h1>
+                                            <ul class="breadcumb">
+                                                    <li class="active"><a href="/MovieSpringH/genero/index.htm">Genero</a></li>
+                                                    <li> <span class="ion-ios-arrow-right"></span> Listado Genero</li>
+                                            </ul>
+                                            
+                                    </div>
+                            </div>
+                    </div>
+            </div>
+        </div>
         <div class="container">
             <div class="row">
                 <h1>Genero</h1>
@@ -42,4 +57,10 @@
             
         </div>
     </body>
+         <%@include file="../templatefoot.jsp"%>
+        <script src="<c:url value="/resources/js/jquery.js"/>"></script>
+        <script src="<c:url value="/resources/js/plugins.js"/>"></script>
+        <script src="<c:url value="/resources/js/plugins2.js"/>"></script>
+        <script src="<c:url value="/resources/js/custom.js"/>"></script>
+    
 </html>

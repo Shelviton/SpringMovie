@@ -12,6 +12,7 @@ import Model.POJO.Socio;
 import Model.POJO.Pelicula;
 import Model.POJO.Sexo;
 import Model.POJO.Actor;
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Vector;
 
@@ -59,6 +60,7 @@ public class DropDownDAO {
         for (int i = 0; i <idArray.length  ; i++) {
             idArray[i]=lst.get(i).getForId();
                 nombreArray[i]=lst.get(i).getForNombre();
+                
         }
         Vector datos = new Vector();
         datos.add(idArray);
@@ -82,18 +84,23 @@ public class DropDownDAO {
         
         return datos ;
     }
-     public static Vector getViewDataPelicula(){
+     public static Vector getViewDataPeliculas(){
        
         List<Pelicula> lst = PeliculaDAO.getlist();
         Integer [] idArray = new Integer[lst.size()];
         String  []  nombreArray = new String[lst.size()];
+        BigDecimal [] valpel = new BigDecimal[lst.size()];
         for (int i = 0; i <idArray.length  ; i++) {
             idArray[i]=lst.get(i).getPelId();
             nombreArray[i]=lst.get(i).getPelNombre();
+            valpel[i]=lst.get(i).getPelCosto();
+            
+            System.out.println(valpel[i]);
         }
         Vector datos = new Vector();
         datos.add(idArray);
         datos.add(nombreArray);
+        datos.add(valpel);
         
         return datos ;
     }

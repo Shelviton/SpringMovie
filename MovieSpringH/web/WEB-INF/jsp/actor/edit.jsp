@@ -17,44 +17,82 @@
     </head>
       <% Vector Sexos = DropDownDAO.getViewDataSexo(); %>
     <body>
-        <div class="container">
-            <ol class="breadcrumb">
-                <li><a href="<c:url value="/actorpelicula/index.htm" />">Actor</a></li>
-                <li class="active">Editar</li>
-            </ol>
-            <div class="panel panel-primary">
-                <div class="panel-heading">Editar</div>
-                <div class="panel-body">
-                   
-                        <form:form method="post" commandName="actor">
-                            <h1>Complete el formulario</h1>
-                            
-                            <form:errors path="*" element="div" cssClass="alert alert-danger" />
-                            <p style="display:none;">
-                                 <form:select path="sexo.sexId" id="selectSid" items="<%= Sexos.get(0) %>" itemsLabel="Sexo"  cssClass="form-control" />
-                                 <form:input path="actId" cssClass="form-control" />
-                            <p/>
-
-                            <p>
-                                <form:label path="actNombre">Nombre:</form:label>
-                                <form:input path="actNombre" cssClass="form-control" />
-                                <form:label path="sexo.sexNombre">Nombre:</form:label>
-                                <form:select path="sexo.sexNombre" id="selectSN" items="<%= Sexos.get(1) %>" itemsLabel="Sexo"  cssClass="form-control" />
-                            </p>
-                            
-                            <hr />
-                            <input type="submit" value="Enviar" class="btn btn-danger" />
-                        </form:form>
-                </div>
+        <%@include file="../templateheader.jsp"%>
+        <div class="hero common-hero">
+            <div class="container">
+                    <div class="row">
+                            <div class="col-md-12">
+                                    <div class="hero-ct">
+                                            <h1>Pelicula</h1>
+                                            <ul class="breadcumb">
+                                                    <li class="active"><a href="/MovieSpringH/actor/index.htm">Actor</a></li>
+                                                    <li> <span class="ion-ios-arrow-right"></span> Editar</li>
+                                            </ul>
+                                            
+                                    </div>
+                            </div>
+                    </div>
             </div>
         </div>
-    </body>
+        <div class="page-single">
+	<div class="container">
+		<div class="row ipad-width">
+			
+			<div class="col-md-9 col-sm-12 col-xs-12">
+				<div class="form-style-1 user-pro" action="#">
+                                    <form:form method="post" commandName="actor">          
+                                        <p style="display:none;" name="ids">
+                                             <form:input path="actId" cssClass="form-control"  />
+                                              <form:select path="sexo.sexId" id="selectSid" items="<%= Sexos.get(0) %>" itemsLabel="Sexo"  cssClass="form-control" />
+                                        </p>
+                                        <form:errors path="*" element="div" cssClass="alert alert-danger" />	
+						<h4>01. Actor detalles</h4>
+						
+						
+						<div class="row">
+							<div class="col-md-6 form-it">
+								<form:label path="actNombre">Nombre:</form:label>
+                                                                <form:input path="actNombre" cssClass="form-control" />
+							</div>
+							<div class="col-md-6 form-it">
+								<form:label path="sexo.sexNombre">Nombre:</form:label>
+                                                                <form:select path="sexo.sexNombre" id="selectSN" items="<%= Sexos.get(1) %>" itemsLabel="Sexo"  cssClass="form-control" />
+							</div>
+						</div>
+                                                <div class="row">
+                                                          <div class="col-md-2">
+                                                                  <input class="submit" type="submit" value="save">
+                                                          </div>
+                                                </div>	
+                                         </form:form>
+					
+                                            </div>
+                                    </div>
+                            </div>
+                    </div>
+            </div>
+         <div class="col-md-8 col-sm-12 col-xs-12">
+		
         
+				
+        </div>
+        
+                    
+        
+        
+         <%@include file="../templatefoot.jsp"%>
+    </body>
+    <script src="<c:url value="/resources/js/jquery.js"/>"></script>
+    <script src="<c:url value="/resources/js/plugins.js"/>"></script>
+    <script src="<c:url value="/resources/js/plugins2.js"/>"></script>
+    <script src="<c:url value="/resources/js/custom.js"/>"></script>
+    
     <script>
    $("#selectSN" ) .change(function () {    
            $("#selectSid")[0].selectedIndex=$("#selectSN")[0].selectedIndex;
            
     });  
    
- </script>  
+ </script>
+  
 </html>
