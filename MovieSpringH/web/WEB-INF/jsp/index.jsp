@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <!--[if IE 7]>
 <html class="ie ie7 no-js" lang="en-US">
@@ -9,8 +10,14 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@page import="java.util.List"%>
+<%@page  import="java.util.Vector" %>
+<%@page  import="java.math.BigDecimal" %>
+<%@page  import="Model.POJO.Pelicula" %>
+<%@page  import="Model.DAO.PeliculaDAO" %>
+<%@page  import="Model.POJO.Actor" %>
+<%@page  import="Model.DAO.DropDownDAO" %>
 <html lang="en" class="no-js">
-
 
     <head>
         <!-- Basic need -->
@@ -33,6 +40,9 @@
 
 
     </head>
+    <% List<Pelicula> Peliculas = PeliculaDAO.getlist();
+       Vector Actores = DropDownDAO.getViewDataActor();
+       %>
     <body>
         <!--preloading-->
         <div id="preloader">
@@ -101,114 +111,24 @@
                         <a href="#"><i class="ion-social-youtube"></i></a>
                     </div>
                     <div  class="slick-multiItemSlider">
-                        <div class="movie-item">
-                            <div class="mv-img">
-                                <a href="#"><img src="resources/images/uploads/slider1.jpg" alt="" width="285" height="437"></a>
-                            </div>
-                            <div class="title-in">
-                                <div class="cate">
-                                    <span class="blue"><a href="#">Sci-fi</a></span>
+                       
+                         <c:forEach items="<%= Peliculas%>" var="datos">
+                           
+                            <div class="movie-item">
+                                <div class="mv-img">
+                                    <a href="#"><img src="resources/images/uploads/slider1.jpg" alt="" width="285" height="437"></a>
                                 </div>
-                                <h6><a href="#">Interstellar</a></h6>
-                                <p><i class="ion-android-star"></i><span>7.4</span> /10</p>
-                            </div>
-                        </div>
-                        <div class="movie-item">
-                            <div class="mv-img">
-                                <a href="#"><img src="resources/images/uploads/slider2.jpg" alt="" width="285" height="437"></a>
-                            </div>
-                            <div class="title-in">
-                                <div class="cate">
-                                    <span class="yell"><a href="#">action</a></span>
+                                <div class="title-in">
+                                   <span class="green"><a href="#">${datos.getGenero().getGenNombre()}</a></span>
+                                    <h6><a href="#">${datos.getPelNombre()}</a></h6>
+                                   <p><i class="ion-android-star"></i><span>${datos.getPelCosto()}</span> /10</p>
+                                    
                                 </div>
-                                <h6><a href="#">The revenant</a></h6>
-                                <p><i class="ion-android-star"></i><span>7.4</span> /10</p>
                             </div>
-                        </div>
-                        <div class="movie-item">
-                            <div class="mv-img">
-                                <a href="#"><img src="resources/images/uploads/slider3.jpg" alt="" width="285" height="437"></a>
-                            </div>
-                            <div class="title-in">
-                                <div class="cate">
-                                    <span class="green"><a href="#">comedy</a></span>
-                                </div>
-                                <h6><a href="#">Die hard</a></h6>
-                                <p><i class="ion-android-star"></i><span>7.4</span> /10</p>
-                            </div>
-                        </div>
-                        <div class="movie-item">
-                            <div class="mv-img">
-                                <a href="#"><img src="resources/images/uploads/slider4.jpg" alt="" width="285" height="437"></a>
-                            </div>
-                            <div class="title-in">
-                                <div class="cate">
-                                    <span class="blue"><a href="#">Sci-fi</a></span> <span class="orange"><a href="#">advanture</a></span>
-                                </div>
-                                <h6><a href="#">The walk</a></h6>
-                                <p><i class="ion-android-star"></i><span>7.4</span> /10</p>
-                            </div>
-                        </div>
-                        <div class="movie-item">
-                            <div class="mv-img">
-                                <a href="#"><img src="resources/images/uploads/slider1.jpg" alt="" width="285" height="437"></a>
-                            </div>
-                            <div class="title-in">
-                                <div class="cate">
-                                    <span class="blue"><a href="#">Sci-fi</a></span>
-                                </div>
-                                <h6><a href="#">Interstellar</a></h6>
-                                <p><i class="ion-android-star"></i><span>7.4</span> /10</p>
-                            </div>
-                        </div>
-                        <div class="movie-item">
-                            <div class="mv-img">
-                                <a href="#"><img src="resources/images/uploads/slider2.jpg" alt="" width="285" height="437"></a>
-                            </div>
-                            <div class="title-in">
-                                <div class="cate">
-                                    <span class="yell"><a href="#">action</a></span>
-                                </div>
-                                <h6><a href="#">The revenant</a></h6>
-                                <p><i class="ion-android-star"></i><span>7.4</span> /10</p>
-                            </div>
-                        </div>
-                        <div class="movie-item">
-                            <div class="mv-img">
-                                <img src="resources/images/uploads/slider3.jpg" alt="" width="285" height="437">
-                            </div>
-                            <div class="title-in">
-                                <div class="cate">
-                                    <span class="green"><a href="#">comedy</a></span>
-                                </div>
-                                <h6><a href="#">Die hard</a></h6>
-                                <p><i class="ion-android-star"></i><span>7.4</span> /10</p>
-                            </div>
-                        </div>
-                        <div class="movie-item">
-                            <div class="mv-img">
-                                <img src="resources/images/uploads/slider4.jpg" alt="" width="285" height="437">
-                            </div>
-                            <div class="title-in">
-                                <div class="cate">
-                                    <span class="blue"><a href="#">Sci-fi</a></span> <span class="orange"><a href="#">advanture</a></span>
-                                </div>
-                                <h6><a href="#">The walk</a></h6>
-                                <p><i class="ion-android-star"></i><span>7.4</span> /10</p>
-                            </div>
-                        </div>
-                        <div class="movie-item">
-                            <div class="mv-img">
-                                <img src="resources/images/uploads/slider3.jpg" alt="" width="285" height="437">
-                            </div>
-                            <div class="title-in">
-                                <div class="cate">
-                                    <span class="green"><a href="#">comedy</a></span>
-                                </div>
-                                <h6><a href="#">Die hard</a></h6>
-                                <p><i class="ion-android-star"></i><span>7.4</span> /10</p>
-                            </div>
-                        </div>
+                        </c:forEach>
+                        
+                        
+   
                     </div>
                 </div>
             </div>
@@ -661,35 +581,19 @@
                             </div>
                             <div class="celebrities">
                                 <h4 class="sb-title">Actores</h4>
-                                <div class="celeb-item">
-                                    <a href="#"><img src="resources/images/uploads/ava1.jpg" alt="" width="70" height="70"></a>
-                                    <div class="celeb-author">
-                                        <h6><a href="#">Samuel N. Jack</a></h6>
-                                        <span>Actor</span>
+                                 <c:forEach items="<%= Actores.get(1)%>" var="datos">
+                                     <div class="celeb-item">
+                                        <a href="#"><img src="resources/images/uploads/ava1.jpg" alt="" width="70" height="70"></a>
+                                        <div class="celeb-author">
+                                            <h6><a href="#">${datos}</a></h6>
+                                            <span>Actor</span>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="celeb-item">
-                                    <a href="#"><img src="resources/images/uploads/ava2.jpg" alt="" width="70" height="70"></a>
-                                    <div class="celeb-author">
-                                        <h6><a href="#">Benjamin Carroll</a></h6>
-                                        <span>Actor</span>
-                                    </div>
-                                </div>
-                                <div class="celeb-item">
-                                    <a href="#"><img src="resources/images/uploads/ava3.jpg" alt="" width="70" height="70"></a>
-                                    <div class="celeb-author">
-                                        <h6><a href="#">Beverly Griffin</a></h6>
-                                        <span>Actor</span>
-                                    </div>
-                                </div>
-                                <div class="celeb-item">
-                                    <a href="#"><img src="resources/images/uploads/ava4.jpg" alt="" width="70" height="70"></a>
-                                    <div class="celeb-author">
-                                        <h6><a href="#">Justin Weaver</a></h6>
-                                        <span>Actor</span>
-                                    </div>
-                                </div>
-                                <a href="#" class="btn">Ver todos los Actores<i class="ion-ios-arrow-right"></i></a>
+                           
+                                 </c:forEach>
+                                
+
+                                <a href="/MovieSpring/actor/index.htm" class="btn">Ver todos los Actores<i class="ion-ios-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
