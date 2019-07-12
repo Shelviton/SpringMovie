@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:8080/MovieSpringH/PeliculaWS?wsdl" uri="src/conf/xml-resources/web-service-references/PeliculaWS/wsdl/localhost_8080/MovieSpringH/PeliculaWS.wsdl"/>
+    <system systemId="http://localhost:8080/MovieSpringH/PeliculaWS?xsd=1" uri="src/conf/xml-resources/web-service-references/PeliculaWS/wsdl/localhost_8080/MovieSpringH/PeliculaWS.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/MovieSpringH/AlquilerWS?wsdl" uri="src/conf/xml-resources/web-service-references/AlquilerWS/wsdl/localhost_8080/MovieSpringH/AlquilerWS.wsdl"/>
+    <system systemId="http://localhost:8080/MovieSpringH/AlquilerWS?xsd=1" uri="src/conf/xml-resources/web-service-references/AlquilerWS/wsdl/localhost_8080/MovieSpringH/AlquilerWS.xsd_1.xsd"/>
+</catalog>
