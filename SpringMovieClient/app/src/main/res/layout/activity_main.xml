@@ -35,9 +35,11 @@
         android:layout_above="@+id/btnConsultar"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="55dp"
+        android:background="@color/colorPrimary"
         android:ems="10"
         android:inputType="textPersonName"
         android:textColor="@android:color/background_light"
+        android:textColorLink="@color/colorPrimary"
         tools:layout_editor_absoluteX="84dp"
         tools:layout_editor_absoluteY="98dp" />
 
